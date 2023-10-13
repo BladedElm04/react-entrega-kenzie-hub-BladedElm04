@@ -14,6 +14,10 @@
             text-decoration: none;
             padding: 0 1.015rem 0 1.015rem;
             color: var(--grey-0);
+
+        }
+        &:hover {
+            background-color: var(--grey-2);
         }
     }
 

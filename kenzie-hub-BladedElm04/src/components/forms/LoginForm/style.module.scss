@@ -23,6 +23,10 @@
             height: 2.4063rem;
             margin: auto;
             margin-top: 1rem;
+
+            &:hover {
+                background-color: var(--color-primary-focus);
+            }
         }
     }
 
@@ -61,6 +65,10 @@
             border-radius: 0.2537rem;
             color: var(--grey-0);
             font-family: "Inter", sans-serif;
+
+            &:hover {
+                background-color: var(--grey-2);
+            }
         }
     }
 }
