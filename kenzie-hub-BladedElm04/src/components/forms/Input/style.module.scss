@@ -1,0 +1,39 @@
+.input__container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1rem;
+    
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 3.76rem;
+
+        input {
+            height: 2.4063rem;
+            background-color: var(--grey-2);
+            color: var(--grey-0);
+            border: 0.0612rem solid var(--grey-2);
+            border-radius: 0.2006rem;
+            padding-left: 1rem;
+            position: relative;
+
+            &:focus {
+                border: 0.0612rem solid var(--grey-0);
+                outline: 0;
+            }
+        }
+        
+        span {
+            position: absolute;
+            margin: inherit;
+            color: var(--negative);
+            right: 10%;
+        }
+
+        
+    }
+    
+}

@@ -1,0 +1,17 @@
+.btn {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    border-radius: 0.2537rem;
+    background-color: var(--color-primary);
+    padding: 0 1.3956rem 0 1.3956rem;
+    border: none;
+    cursor: pointer;
+
+    &.medium {
+        background-color: var(--grey-3);
+    }
+
+    &.negative {
+        background-color: var(--color-primary-negative);
+    }
+}

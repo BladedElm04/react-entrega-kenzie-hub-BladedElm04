@@ -1,0 +1,27 @@
+.title {
+    color: var(--grey-0);
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    &.one {
+        font-size: 1.125rem;
+    }
+    
+    &.two {
+        font-size: 1rem;
+    }
+}
+
+.headline {
+    font-size: 0.75rem;
+    font-family: "Inter", sans-serif;
+    color: var(--grey-0);
+    &.bold {
+        font-weight: 600;
+    }
+}
+
+.paragraph {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    color: var(--grey-0);
+}

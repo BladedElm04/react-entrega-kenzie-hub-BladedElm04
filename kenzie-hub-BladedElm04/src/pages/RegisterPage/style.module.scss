@@ -1,0 +1,26 @@
+.logo__container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    width: 90%;
+    align-items: center;
+    
+    button {
+        height: 1.9969rem;
+        .toLogin__button {
+            font-family: "Inter", sans-serif;
+            text-decoration: none;
+            padding: 0 1.015rem 0 1.015rem;
+            color: var(--grey-0);
+        }
+    }
+
+}
+
+@media (min-width:900px) {
+    .logo__container {
+        width: 23.125rem;
+    }
+}

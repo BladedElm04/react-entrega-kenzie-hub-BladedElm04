@@ -1,0 +1,21 @@
+.header__container {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+
+    button {
+        height: 1.9969rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--grey-0);
+    }
+}
+
+@media (min-width:900px) {
+    .header__container {
+        width: 60%;
+    }
+}
