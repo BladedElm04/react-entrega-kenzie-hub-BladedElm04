@@ -10,6 +10,7 @@
         flex-direction: column;
         gap: 1rem;
         height: 3.76rem;
+        position: relative;
 
         input {
             height: 2.4063rem;
@@ -18,7 +19,6 @@
             border: 0.0612rem solid var(--grey-2);
             border-radius: 0.2006rem;
             padding-left: 1rem;
-            position: relative;
 
             &:focus {
                 border: 0.0612rem solid var(--grey-0);
@@ -30,10 +30,7 @@
             position: absolute;
             margin: inherit;
             color: var(--negative);
-            right: 10%;
-        }
-
-        
+            right: 0;
+        } 
     }
-    
 }

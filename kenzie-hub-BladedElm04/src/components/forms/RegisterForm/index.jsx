@@ -3,10 +3,9 @@ import { Input } from "../Input"
 import { registerFormSchema } from "./registerFormSchema.js"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { api } from "../../../services/api"
-import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { ToastContainer, toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css'
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import styles from "./style.module.scss"
 
 export const RegisterForm = () => {
@@ -16,7 +15,6 @@ export const RegisterForm = () => {
 
     const [loading, setLoading] = useState(false)
 
-    const navigate = useNavigate()
 
     const userRegister = async (formData) => {
         try {
@@ -112,17 +110,6 @@ export const RegisterForm = () => {
                     </div>
                     <button className="btn negative title two" type="submit" disabled={loading}>Cadastrar</button>
                 </form>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light" />
             </div>
         </>
     )

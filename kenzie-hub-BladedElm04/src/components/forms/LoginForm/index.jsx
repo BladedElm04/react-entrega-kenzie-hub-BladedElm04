@@ -70,17 +70,7 @@ export const LoginForm = ({ setUser }) => {
                     <span className="headline">Ainda não possui uma conta?</span>
                     <Link className={styles.to_register__button} to="/register" >Cadastrar-se</Link>
                 </div>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="dark" />
+                
             </div>
         </>
     )
