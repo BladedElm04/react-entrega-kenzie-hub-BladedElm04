@@ -1,8 +1,13 @@
+import { useContext } from "react"
 import { DefaultTemplate } from "../../components/DefaultTemplate"
 import { Header } from "../../components/Header"
 import styles from "./style.module.scss"
+import { UserContext } from "../../providers/UserContext"
 
-export const DashBoard = ({ user, setUser }) => {
+export const DashBoard = () => {
+
+    const { user, setUser } = useContext(UserContext)
+
     return (
         <>
             <Header setUser={setUser} className={styles.header__container} />
