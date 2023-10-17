@@ -3,50 +3,25 @@ import { Input } from "../Input"
 import { registerFormSchema } from "./registerFormSchema.js"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { api } from "../../../services/api"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import styles from "./style.module.scss"
+import { UserContext } from "../../../providers/UserContext"
+import { useNavigate } from "react-router-dom"
 
 export const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(registerFormSchema)
     })
+    const { userRegister } = useContext(UserContext)
 
     const [loading, setLoading] = useState(false)
 
+    const navigate = useNavigate()
 
-    const userRegister = async (formData) => {
-        try {
-            setLoading(true)
-            await api.post("/users", formData)
-            toast.success("Conta criada com sucesso!", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            })
-        } catch (error) {
-            toast.error("Usuario já cadastrado", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            })
-        } finally {
-            setLoading(false)
-        }
-    }
     const submit = (formData) => {
-        userRegister(formData)
+        userRegister(formData, setLoading, navigate)
     }
 
     return (

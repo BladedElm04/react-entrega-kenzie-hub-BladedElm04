@@ -6,40 +6,23 @@ import { Link, useNavigate } from "react-router-dom"
 import { api } from "../../../services/api"
 import styles from "./style.module.scss"
 import { MdVisibility, MdVisibilityOff } from "react-icons/md"
-import { useState } from "react"
-import { ToastContainer, toast } from "react-toastify"
+import { useContext, useState } from "react"
+import { toast } from "react-toastify"
+import { UserContext } from "../../../providers/UserContext"
 
-export const LoginForm = ({ setUser }) => {
+export const LoginForm = () => {
     const { register, handleSubmit, formState: {errors}} = useForm({
         resolver: zodResolver(loginFormSchema)
     })
+
+    const { userLogin } = useContext(UserContext)
 
     const [isHidden, setIsHidden] = useState(true)
 
     const navigate = useNavigate()
 
-    const userLogin = async (formData) => {
-        try {
-            const { data } = await api.post("/sessions", formData)
-            localStorage.setItem("@token", data.token)
-            setUser(data.user)
-            navigate("/dashboard")
-        } catch (error) {
-            toast.error("Email ou senha inválidos", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            })
-        }
-    }
-
     const submit = (formData) => {
-        userLogin(formData)
+        userLogin(formData, navigate)
     }
     
     return (
@@ -70,7 +53,6 @@ export const LoginForm = ({ setUser }) => {
                     <span className="headline">Ainda não possui uma conta?</span>
                     <Link className={styles.to_register__button} to="/register" >Cadastrar-se</Link>
                 </div>
-                
             </div>
         </>
     )
