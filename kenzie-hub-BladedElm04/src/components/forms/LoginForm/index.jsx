@@ -2,12 +2,10 @@ import { useForm } from "react-hook-form"
 import { Input } from "../Input"
 import { loginFormSchema } from "./loginFormSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Link, useNavigate } from "react-router-dom"
-import { api } from "../../../services/api"
+import { Link } from "react-router-dom"
 import styles from "./style.module.scss"
 import { MdVisibility, MdVisibilityOff } from "react-icons/md"
 import { useContext, useState } from "react"
-import { toast } from "react-toastify"
 import { UserContext } from "../../../providers/UserContext"
 
 export const LoginForm = () => {
@@ -19,10 +17,8 @@ export const LoginForm = () => {
 
     const [isHidden, setIsHidden] = useState(true)
 
-    const navigate = useNavigate()
-
     const submit = (formData) => {
-        userLogin(formData, navigate)
+        userLogin(formData)
     }
     
     return (

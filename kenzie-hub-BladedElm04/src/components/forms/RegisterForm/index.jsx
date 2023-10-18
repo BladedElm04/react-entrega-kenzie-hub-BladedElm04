@@ -2,13 +2,10 @@ import { useForm } from "react-hook-form"
 import { Input } from "../Input"
 import { registerFormSchema } from "./registerFormSchema.js"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { api } from "../../../services/api"
 import { useContext, useState } from "react"
-import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import styles from "./style.module.scss"
 import { UserContext } from "../../../providers/UserContext"
-import { useNavigate } from "react-router-dom"
 
 export const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -18,10 +15,8 @@ export const RegisterForm = () => {
 
     const [loading, setLoading] = useState(false)
 
-    const navigate = useNavigate()
-
     const submit = (formData) => {
-        userRegister(formData, setLoading, navigate)
+        userRegister(formData, setLoading)
     }
 
     return (

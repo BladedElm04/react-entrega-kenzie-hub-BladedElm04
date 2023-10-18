@@ -8,12 +8,10 @@ export const Header = () => {
 
     const { logOut } = useContext(UserContext)
 
-    const navigate = useNavigate()
-
     return (
         <header className={styles.header__container}>
             <img src={Logo} alt="logo" />
-            <button className="btn medium" onClick={() => logOut(navigate)}>Sair</button>
+            <button className="btn medium" onClick={() => logOut()}>Sair</button>
         </header>
     )
 }
