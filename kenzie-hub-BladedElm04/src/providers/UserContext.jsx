@@ -8,6 +8,8 @@ export const UserContext = createContext({})
 export const UserProvider = ({ children }) => {
     
     const [user, setUser] = useState(null)
+
+    const [loadingPage, setLoadingPage] = useState(false)
     
     const navigate = useNavigate()
     
@@ -17,6 +19,7 @@ export const UserProvider = ({ children }) => {
             
             if (token) {
                 try {
+                    setLoadingPage(true)
                     const { data } = await api.get("/profile", {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -27,6 +30,8 @@ export const UserProvider = ({ children }) => {
                 } catch (error) {
                     toast.error("Faça login novamente")
                     localStorage.removeItem("@token")
+                } finally {
+                    setLoadingPage(false)
                 }
             }
         }
@@ -93,7 +98,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ user, setUser, userRegister, userLogin, logOut }}>
+        <UserContext.Provider value={{ user, setUser, userRegister, userLogin, logOut, loadingPage }}>
             {children}
         </UserContext.Provider>
     )

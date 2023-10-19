@@ -3,7 +3,7 @@ import { LoginPage } from "../pages/LoginPage"
 import { RegisterPage } from "../pages/RegisterPage"
 import { DashBoard } from "../pages/DashBoard"
 import { LoginForm } from "../components/forms/LoginForm"
-import { ProtectedRoutes } from "../ProtectedRoutes"
+import { ProtectedRoutes } from "./ProtectedRoutes"
 
 export const RoutesMain = () => {
 
