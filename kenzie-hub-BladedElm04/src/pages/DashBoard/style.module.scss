@@ -20,10 +20,10 @@
 .content__section {
     display: flex;
     flex-direction: column;
+    margin: auto;
     margin-top: 2rem;
-    margin-left: 5%;
     gap: 1.5rem;
-    width: 80%;
+    width: 90%;
 
     h2 {
         line-height: 1.75rem;

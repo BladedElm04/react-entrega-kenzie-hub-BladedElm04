@@ -1,12 +1,18 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { DefaultTemplate } from "../../components/DefaultTemplate"
 import { Header } from "../../components/Header"
 import styles from "./style.module.scss"
 import { UserContext } from "../../providers/UserContext"
+import { TechList } from "../../components/TechList"
+import { CreateTechModal } from "../../components/modal/CreateTechModal"
+import { TechContext } from "../../providers/TechContext"
+import { EditTechModal } from "../../components/modal/EditTechModal"
 
 export const DashBoard = () => {
 
     const { user, setUser } = useContext(UserContext)
+
+    const { isVisible, editingTech } = useContext(TechContext)
 
     return (
         <>
@@ -19,10 +25,11 @@ export const DashBoard = () => {
                     </div>
                 </section>
                 <section className={styles.content__section}>
-                    <h2 className="title one">Que pena! Estamos em desenvolvimento :( </h2>
-                    <p className="paragraph">Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+                    <TechList />
                 </section>
             </DefaultTemplate>
+            {isVisible ? <CreateTechModal /> : null}
+            {editingTech ? <EditTechModal/> : null}
             
         </>
     )
