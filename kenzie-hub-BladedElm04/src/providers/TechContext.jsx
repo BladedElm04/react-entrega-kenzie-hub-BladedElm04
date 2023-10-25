@@ -1,11 +1,13 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
+import { UserContext } from "./UserContext";
 
 export const TechContext = createContext({})
 
 export const TechProvider = ({children}) => {
 
-    const [techList, setTechList] = useState([])
+    const {techList, setTechList} = useContext(UserContext)
+
     const [editingTech, setEditingTech] = useState(null)
 
     const [isVisible, setIsVisible] = useState(false)

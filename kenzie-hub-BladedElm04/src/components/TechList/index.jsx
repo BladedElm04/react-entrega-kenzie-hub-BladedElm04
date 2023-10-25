@@ -7,8 +7,8 @@ export const TechList = () => {
 
     const { setIsVisible, techList , deleteTech, setEditingTech} = useContext(TechContext)
 
-    console.log(techList)
 
+    console.log(techList)
     return (
         <>
             <div className={styles.title__container}>
@@ -17,7 +17,8 @@ export const TechList = () => {
             </div>
 
             <ul className={styles.list__container}>
-                {techList.map((tech) => <TechCard key={crypto.randomUUID()} tech={tech} deleteTech={deleteTech} setEditingTech={setEditingTech} />)
+                {
+                   techList.length === 0 ? <p className={`headline ${styles.tech__paragraph}`}>Adicione uma tecnologia...</p> : techList.map((tech) => <TechCard key={crypto.randomUUID()} tech={tech} deleteTech={deleteTech} setEditingTech={setEditingTech} />)
                 }
             </ul>
         </>
