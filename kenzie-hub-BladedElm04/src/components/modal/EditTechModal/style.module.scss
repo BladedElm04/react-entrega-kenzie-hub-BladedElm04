@@ -38,6 +38,10 @@
             margin-top: 1rem;
             margin-bottom: 2rem;
 
+            .input{
+                cursor: not-allowed;                
+            }
+
             .select__container {
                 display: flex;
                 flex-direction: column;

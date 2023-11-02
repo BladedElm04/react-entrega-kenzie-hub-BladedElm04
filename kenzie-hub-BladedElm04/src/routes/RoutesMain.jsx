@@ -7,7 +7,6 @@ import { ProtectedRoutes } from "./ProtectedRoutes"
 
 export const RoutesMain = () => {
 
-    const navigate = useNavigate()
 
     return (
         <Routes>

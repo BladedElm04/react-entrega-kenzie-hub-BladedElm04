@@ -7,8 +7,6 @@ export const TechList = () => {
 
     const { setIsVisible, techList , deleteTech, setEditingTech} = useContext(TechContext)
 
-
-    console.log(techList)
     return (
         <>
             <div className={styles.title__container}>

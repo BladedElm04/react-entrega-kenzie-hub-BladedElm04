@@ -21,7 +21,6 @@ export const TechProvider = ({children}) => {
                        Authorization: `Bearer ${token}`
                    } 
                 })
-                console.log(data.techs)
                 setTechList(data.techs)
             } catch (error) {
                 console.log(error)
@@ -32,7 +31,6 @@ export const TechProvider = ({children}) => {
 
 
     const createTech = async (formData) => {
-        console.log(formData)
         const token = localStorage.getItem("@token")
         try {
             const { data } = await api.post("/users/techs", formData, {
@@ -64,26 +62,24 @@ export const TechProvider = ({children}) => {
     }
 
     const updateTech = async (formData) =>{
+        const token = localStorage.getItem("@token")
         try {
-            const token = localStorage.getItem("@token")
             const { data } = await api.put(`/users/techs/${editingTech.id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
-            const newTechList = techList.map(tech => {
+            const newTechList = techList.map((tech) => {
                 if(tech.id === editingTech.id){
                     return data
                 } else {
                     return tech
                 }
             })
-
             setTechList(newTechList)
-        } catch (error) {
-            console.log(error)
-        } finally {
             setEditingTech(null)
+        } catch (error) {
+            alert(error)
         }
     }
     return (

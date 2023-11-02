@@ -26,7 +26,7 @@ export const EditTechModal = () => {
                 <button className={styles.x__button} onClick={() => setEditingTech(null)}>X</button>
             </div>
             <form onSubmit={handleSubmit(submit)}>
-                <Input label="Nome" type="text" placeholder="Digite a tecnologia" {...register("title")}/>
+                <Input className={styles.input} label="Nome" type="text" placeholder="Digite a tecnologia" {...register("title")} disabled />
 
                 <div className={styles.select__container}>
                     <div>
